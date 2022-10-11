@@ -1,0 +1,40 @@
+// NAMA		: Mahija Ibad Pradipta
+// NRP		: 5024221026
+// Jurusan	: Teknik Komputer
+
+#include <iostream>
+#include <cmath>
+
+#define GRAVITASI 10 
+#define START_PENGUKURAN 1 
+#define SUDUT 45
+
+using namespace std;
+
+float mencari_kecepatan_awal(int r, int s)
+{
+    float vt;
+    vt = sqrt(10 * r) + s;
+      return vt;
+}
+int kerugian_kecepatan(int vt)
+{
+    int vo;
+    if(vt >= 1 && vt <= 10){
+        vo = vt - 1;
+    }else if(vt >= 11 && vt <= 20){
+        vo = vt - 3;
+    }else if(vt >= 21 && vt <= 30){
+        vo = vt - 5;
+    } 
+    return vo;
+}
+int main() {
+    int vt, r;
+      cin >> vt;
+    int vo = kerugian_kecepatan(vt);
+    r = pow(vo,2)/10;
+    float vtn = mencari_kecepatan_awal(r, vt - vo);
+      cout << r << " " << vtn << endl;
+    return 0;
+}
